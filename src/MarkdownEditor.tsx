@@ -38,6 +38,7 @@ const MarkdownEditor = () => {
           <ReactMarkdown>{markdownText}</ReactMarkdown>
         </div>
       </div>
+      useless because I added the live render
       <RenderButton
         setMarkdownText={setMarkdownText}
         markdownText={markdownText}
