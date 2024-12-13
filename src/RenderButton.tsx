@@ -2,16 +2,16 @@ import React, { FC, Dispatch, SetStateAction } from "react";
 import Button from "./components/Button.tsx";
 
 interface RenderButtonProps {
-  setRenderedText: Dispatch<SetStateAction<string>>;
+  setMarkdownText: Dispatch<SetStateAction<string>>;
   markdownText: string;
 }
 
 const RenderButton: FC<RenderButtonProps> = ({
-  setRenderedText,
+  setMarkdownText,
   markdownText,
 }) => {
   const handleRender = () => {
-    setRenderedText(markdownText);
+    setMarkdownText(markdownText);
   };
 
   return (

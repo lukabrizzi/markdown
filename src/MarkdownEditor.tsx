@@ -5,13 +5,11 @@ import "github-markdown-css/github-markdown.css";
 
 const MarkdownEditor = () => {
   const [markdownText, setMarkdownText] = useState<string>("");
-  const [renderedText, setRenderedText] = useState<string>("");
 
   useEffect(() => {
     const savedMarkdown = localStorage.getItem("markdownText");
     if (savedMarkdown) {
       setMarkdownText(savedMarkdown);
-      setRenderedText(savedMarkdown);
     }
   }, []);
 
@@ -22,7 +20,6 @@ const MarkdownEditor = () => {
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const text = e.target.value;
     setMarkdownText(text);
-    setRenderedText(text);
   };
 
   return (
@@ -38,11 +35,11 @@ const MarkdownEditor = () => {
           style={{ backgroundColor: "white", color: "black" }}
           className="flex-1 h-[400px] p-8 border border-gray-300 rounded-xl overflow-auto markdown-body"
         >
-          <ReactMarkdown>{renderedText}</ReactMarkdown>
+          <ReactMarkdown>{markdownText}</ReactMarkdown>
         </div>
       </div>
       <RenderButton
-        setRenderedText={setRenderedText}
+        setMarkdownText={setMarkdownText}
         markdownText={markdownText}
       />
     </div>
